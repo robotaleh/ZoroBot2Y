@@ -26,6 +26,25 @@ float calcular_arco_giro(int grados, float ticksMotores[]) {
 	}
 }
 
+/**
+* Calcula los ticks que deben dar los motores para rotar sobre si mismo los grados indicados
+* @method calcular_arco_giro
+* @param  grados             Cantidad de grados a girar
+* @param  ticksMotores       Array donde se almacenarán los ticks.
+*/
+void calcular_rotacion(int grados, float ticksMotores[]) {
+	float rad = (grados * 3.1416f / 180);
+	float arco_interior = rad * (float)DISTANCIA_RUEDAS_CM/2.0f;
+	float arco_exterior = rad * (float)DISTANCIA_RUEDAS_CM/2.0f;
+	if (grados > 0) {
+		ticksMotores[0] = (float)TICKS_CM * arco_interior;
+		ticksMotores[1] = (float)TICKS_CM * arco_exterior;
+	} else {
+		ticksMotores[0] = (float)TICKS_CM * abs(arco_exterior);
+		ticksMotores[1] = (float)TICKS_CM * abs(arco_interior);
+	}
+}
+
 
 /**
 * Establece la velocidad para ambos motores individualmente
