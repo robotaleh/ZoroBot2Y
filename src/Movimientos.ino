@@ -79,10 +79,13 @@ void set_speed(float velI, float velD) {
 /**
  * Detiene completamente el robot
  */
-void stop(){
+void stop(int contra_vel_I, int contra_vel_D){
 	correccion_lateral = 0;
 	correccion_frontal[0] = 0;
 	correccion_frontal[1] = 0;
+
+	set_speed(contra_vel_I, contra_vel_D);
+	delay(50);
 	run = false;
   digitalWrite(MOTOR_RUN, HIGH);
   digitalWrite(MOTOR_DERECHO_PWM, LOW);
