@@ -80,7 +80,7 @@ void set_speed(float velBaseI, float velBaseD) {
 }
 
 /**
-* Detiene completamente el robot
+* Detiene completamente el robot, indicando una contra-velocidad para corregir inercia
 */
 void stop(int contra_vel_I, int contra_vel_D){
 	correccion_lateral = 0;
@@ -93,4 +93,11 @@ void stop(int contra_vel_I, int contra_vel_D){
 	digitalWrite(MOTOR_RUN, HIGH);
 	digitalWrite(MOTOR_DERECHO_PWM, LOW);
 	digitalWrite(MOTOR_IZQUIERDO_PWM, LOW);
+}
+
+/**
+ * Detiene completamente el robot.
+ */
+void stop(){
+	stop(0,0);
 }
