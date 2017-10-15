@@ -120,7 +120,7 @@ short objetivo_frontal[]    = {125, 125};
 //////////////////////////
 //VARIABLES PID LATERAL //
 //////////////////////////
-float kp_lateral          = 0.3;
+float kp_lateral          = 0.2;
 float ki_lateral          = 0.5;
 float kd_lateral          = 150;
 int sum_error_lateral = 0;
