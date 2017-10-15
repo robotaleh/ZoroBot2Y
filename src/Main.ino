@@ -37,9 +37,6 @@
 //////////////////////
 //VARIABLES NEUTRAS //
 //////////////////////
-#define NUM_SENSORES_FRONTALES 2
-#define NUM_SENSORES_LATERALES 2
-
 #define NUM_HISTORIAL_SENSORES 10
 #define DELAY_FILTRO_SENSORES 5
 #define LED_PIN 13
@@ -55,9 +52,11 @@ bool run = false;
 ////////////////////////////////
 //VARIABLES CALIBRADO FRONTAL //
 ////////////////////////////////
+#define NUM_SENSORES_FRONTALES 2
 #define TIEMPO_CALIBRADO_FRONTAL 5000
 #define CALIBRADO_FRONTAL 0
-short sensorValoresFrontales[] = {0, 0};
+int sensores_frontales[] = {SENSOR_FRONTAL_IZQUIERDO, SENSOR_FRONTAL_DERECHO};
+int sensorValoresFrontales[] = {0, 0};
 int minValoresFrontales[] = {1023, 1023};
 int maxValoresFrontales[] = {0, 0};
 // int minValoresFrontales[] = {92, 106};
@@ -67,10 +66,12 @@ int valores_sensores_frontales[2][NUM_HISTORIAL_SENSORES];
 ////////////////////////////////
 //VARIABLES CALIBRADO LATERAL //
 ////////////////////////////////
+#define NUM_SENSORES_LATERALES 2
 #define TIEMPO_CALIBRADO_LATERAL 5000
 #define CALIBRADO_LATERAL 1
 #define AUTO_CALIBRADO_LATERAL 1
-short sensorValoresLaterales[] = {0, 0};
+int sensores_frontales[] = {SENSOR_LATERAL_IZQUIERDO, SENSOR_LATERAL_DERECHO};
+int sensorValoresLaterales[] = {0, 0};
 int minValoresLaterales[] = {1023, 1023};
 int maxValoresLaterales[] = {0, 0};
 // int minValoresLaterales[] = {194, 167};

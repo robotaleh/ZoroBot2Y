@@ -4,6 +4,27 @@
 ///////////////////////////////////////////////////////////////////
 
 /**
+ * Lectura directa de los sensores frontales
+ * @param lateralValues Array donde se almacenarán los valores leídos
+ */
+void lectura_frontal_raw(short frontalValues[]){
+  for(byte sensor = 0; sensor<NUM_SENSORES_FRONTALES;sensor++){
+    frontalValues[sensor] = analogRead(sensores_frontales[sensor]);
+  }
+}
+
+/**
+ * Lectura directa de los sensores laterales
+ * @param lateralValues Array donde se almacenarán los valores leídos
+ */
+void lectura_lateral_raw(int lateralValues[]){
+  for(byte sensor = 0; sensor<NUM_SENSORES_LATERALES;sensor++){
+    lateralValues[sensor] = analogRead(sensores_laterales[sensor]);
+  }
+}
+
+
+/**
 * Función a ejecutar con cada tick del Canal A del motor derecho
 */
 void tick_encoder_derecho_A(){
