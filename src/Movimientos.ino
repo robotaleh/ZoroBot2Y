@@ -4,6 +4,30 @@
 /////////////////////////////////////////////////////////////////////////
 
 /**
+ * Función para resetear error del robot yendo marcha atrás hacia una pared y
+ * posicionándose en el centro de la casilla.
+ *
+ * NOTE: Para usarlo, es recomendable que sea el final de un callejón sin salida.
+ */
+void wall_reset(){
+	int ticks_objetivoI = 0;
+	int ticks_objetivoD = 0;
+	do {
+		set_speed(-50, -50);
+		ticksDerecho = 0;
+		ticksIzquierdo = 0;
+		delay(100);
+		if(!ticks_objetivoI && !ticks_objetivoD){
+			ticks_objetivoI = abs(ticksIzquierdo);
+			ticks_objetivoD = abs(ticksDerecho);
+		}
+	}while(abs(ticksIzquierdo) > (ticks_objetivoI/2) || abs(ticksDerecho) > (ticks_objetivoD/2));
+	stop();
+	delay(100);
+	run_cm(50, 5.5f);
+}
+
+/**
  * Función para desplazar longitudinalmente el robot tantos cm como se indiquen.
  * @param velBase Velocidad del movimiento
  * @param cm      Centímetros que se recorrerán
