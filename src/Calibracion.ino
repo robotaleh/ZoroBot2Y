@@ -7,9 +7,13 @@
 * Inicia una calibración completa de los sensores de pared
 */
 void calibrate_all(){
-  calibrate_sides();
+  if(CALIBRADO_LATERAL){
+    calibrate_sides();
+  }
   delay(50);
-  calibrate_front();
+  if(CALIBRADO_FRONTAL){
+    calibrate_front();
+  }
 }
 
 /**
