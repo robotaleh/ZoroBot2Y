@@ -28,13 +28,16 @@ float calcular_arco_giro(int grados, float ticksMotores[]) {
 
 
 /**
- * Establece la velocidad para ambos motores individualmente
- * @param velI Velocidad para el motor izquierdo
- * @param velD Velocidad para el motor derecho
- */
-void set_speed(float velI, float velD) {
+* Establece la velocidad para ambos motores individualmente
+* @param velI Velocidad para el motor izquierdo
+* @param velD Velocidad para el motor derecho
+*/
+void set_speed(float velBaseI, float velBaseD) {
 	int pinD = MOTOR_DERECHO_ADELANTE;
 	int pinI = MOTOR_IZQUIERDO_ADELANTE;
+	sumar_correcciones(suma_correcciones);
+	int velI = velBaseI + suma_correcciones[0];
+	int velD = velBaseD + suma_correcciones[1];
 
 	// Limitar velocidad del motor derecho y selecciona la dirección.
 	if (velD > 255) {
@@ -77,8 +80,8 @@ void set_speed(float velI, float velD) {
 }
 
 /**
- * Detiene completamente el robot
- */
+* Detiene completamente el robot
+*/
 void stop(int contra_vel_I, int contra_vel_D){
 	correccion_lateral = 0;
 	correccion_frontal[0] = 0;
@@ -87,7 +90,7 @@ void stop(int contra_vel_I, int contra_vel_D){
 	set_speed(contra_vel_I, contra_vel_D);
 	delay(50);
 	run = false;
-  digitalWrite(MOTOR_RUN, HIGH);
-  digitalWrite(MOTOR_DERECHO_PWM, LOW);
-  digitalWrite(MOTOR_IZQUIERDO_PWM, LOW);
+	digitalWrite(MOTOR_RUN, HIGH);
+	digitalWrite(MOTOR_DERECHO_PWM, LOW);
+	digitalWrite(MOTOR_IZQUIERDO_PWM, LOW);
 }
