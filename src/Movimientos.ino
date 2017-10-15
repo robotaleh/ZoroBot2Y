@@ -75,3 +75,16 @@ void set_speed(float velI, float velD) {
 	analogWrite(MOTOR_DERECHO_PWM   , velD);
 	analogWrite(MOTOR_IZQUIERDO_PWM , velI);
 }
+
+/**
+ * Detiene completamente el robot
+ */
+void stop(){
+	correccion_lateral = 0;
+	correccion_frontal[0] = 0;
+	correccion_frontal[1] = 0;
+	run = false;
+  digitalWrite(MOTOR_RUN, HIGH);
+  digitalWrite(MOTOR_DERECHO_PWM, LOW);
+  digitalWrite(MOTOR_IZQUIERDO_PWM, LOW);
+}
