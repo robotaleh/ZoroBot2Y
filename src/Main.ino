@@ -54,14 +54,15 @@ bool run = false;
 ////////////////////////////////
 #define NUM_SENSORES_FRONTALES 2
 #define TIEMPO_CALIBRADO_FRONTAL 5000
-#define CALIBRADO_FRONTAL 0
+#define CALIBRADO_FRONTAL 1
 int sensores_frontales[] = {SENSOR_FRONTAL_IZQUIERDO, SENSOR_FRONTAL_DERECHO};
-int sensorValoresFrontales[] = {0, 0};
+int valores_sensores_frontales[] = {0, 0};
 int minValoresFrontales[] = {1023, 1023};
 int maxValoresFrontales[] = {0, 0};
+int sumaValoresFrontales[] = {0,0};
 // int minValoresFrontales[] = {92, 106};
 // int maxValoresFrontales[] = {598, 594};
-int valores_sensores_frontales[2][NUM_HISTORIAL_SENSORES];
+int filtrado_sensores_frontales[2][NUM_HISTORIAL_SENSORES];
 
 ////////////////////////////////
 //VARIABLES CALIBRADO LATERAL //
