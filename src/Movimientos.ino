@@ -25,3 +25,53 @@ float calcular_arco_giro(int grados, float ticksMotores[]) {
 		return -(arco_exterior / arco_interior);
 	}
 }
+
+
+/**
+ * Establece la velocidad para ambos motores individualmente
+ * @param velI Velocidad para el motor izquierdo
+ * @param velD Velocidad para el motor derecho
+ */
+void set_speed(float velI, float velD) {
+	int pinD = MOTOR_DERECHO_ADELANTE;
+	int pinI = MOTOR_IZQUIERDO_ADELANTE;
+
+	// Limitar velocidad del motor derecho y selecciona la dirección.
+	if (velD > 255) {
+		velD = 255;
+		pinD = MOTOR_DERECHO_ADELANTE;
+	} else if (velD < 0) {
+		velD = abs(velD);
+		if (velD > 255) {
+			velD = 255;
+		}
+		pinD = MOTOR_DERECHO_ATRAS;
+	}
+
+	// Limitar velocidad del motor izquierdo y selecciona la dirección.
+	if (velI > 255) {
+		velI = 255;
+		pinI = MOTOR_IZQUIERDO_ADELANTE;
+	} else if (velI < 0) {
+		velI = abs(velI);
+		if (velI > 255) {
+			velI = 255;
+		}
+		pinI = MOTOR_IZQUIERDO_ATRAS;
+	}
+
+	if (!run) {
+		run = true;
+		digitalWrite(MOTOR_RUN, HIGH);
+	}
+	digitalWrite(MOTOR_DERECHO_ADELANTE, LOW);
+	digitalWrite(MOTOR_DERECHO_ATRAS, LOW);
+	digitalWrite(MOTOR_IZQUIERDO_ADELANTE, LOW);
+	digitalWrite(MOTOR_IZQUIERDO_ATRAS, LOW);
+
+	digitalWrite(pinD, HIGH);
+	digitalWrite(pinI, HIGH);
+
+	analogWrite(MOTOR_DERECHO_PWM   , velD);
+	analogWrite(MOTOR_IZQUIERDO_PWM , velI);
+}
