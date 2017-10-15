@@ -7,7 +7,7 @@
  * Lectura directa de los sensores frontales
  * @param lateralValues Array donde se almacenarán los valores leídos
  */
-void lectura_frontal_raw(short frontalValues[]){
+void read_fronts_raw(short frontalValues[]){
   for(byte sensor = 0; sensor<NUM_SENSORES_FRONTALES;sensor++){
     frontalValues[sensor] = analogRead(sensores_frontales[sensor]);
   }
@@ -17,7 +17,7 @@ void lectura_frontal_raw(short frontalValues[]){
  * Lectura directa de los sensores laterales
  * @param lateralValues Array donde se almacenarán los valores leídos
  */
-void lectura_lateral_raw(int lateralValues[]){
+void read_sides_raw(int lateralValues[]){
   for(byte sensor = 0; sensor<NUM_SENSORES_LATERALES;sensor++){
     lateralValues[sensor] = analogRead(sensores_laterales[sensor]);
   }
