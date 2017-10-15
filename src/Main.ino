@@ -70,7 +70,7 @@ int valores_sensores_frontales[2][NUM_HISTORIAL_SENSORES];
 #define TIEMPO_CALIBRADO_LATERAL 5000
 #define CALIBRADO_LATERAL 1
 #define AUTO_CALIBRADO_LATERAL 1
-int sensores_frontales[] = {SENSOR_LATERAL_IZQUIERDO, SENSOR_LATERAL_DERECHO};
+int sensores_laterales[] = {SENSOR_LATERAL_IZQUIERDO, SENSOR_LATERAL_DERECHO};
 int sensorValoresLaterales[] = {0, 0};
 int minValoresLaterales[] = {1023, 1023};
 int maxValoresLaterales[] = {0, 0};
@@ -103,10 +103,6 @@ const float RADIO_ARCO_CM = 4.2f;
 const float DISTANCIA_RUEDAS_CM = 7.2f;
 const float TICKS_CM = 87; //87.6 - 87.4
 const float CM_CASILLA = 18.2f;
-
-
-byte sensores_frontales[] = {SENSOR_FRONTAL_IZQUIERDO, SENSOR_FRONTAL_DERECHO};
-byte sensores_laterales[] = {SENSOR_LATERAL_IZQUIERDO, SENSOR_LATERAL_DERECHO};
 
 
 //////////////////////////
