@@ -98,12 +98,11 @@ volatile bool estado_encoder_derecho_B = false;
 volatile bool estado_encoder_izquierdo_B = false;
 volatile long ticksIzquierdo = 0;
 volatile long ticksDerecho = 0;
-volatile bool changed = false;
 
-const float RADIO_ARCO_CM = 4.5f;
+const float RADIO_ARCO_CM = 4.2f;
 const float DISTANCIA_RUEDAS_CM = 7.2f;
-const float TICKS_CM = 38;
-const float CM_CASILLA = 20;
+const float TICKS_CM = 87; //87.6 - 87.4
+const float CM_CASILLA = 18.2f;
 
 
 byte sensores_frontales[] = {SENSOR_FRONTAL_IZQUIERDO, SENSOR_FRONTAL_DERECHO};
