@@ -4,6 +4,15 @@
 /////////////////////////////////////////////////////
 
 /**
+* Inicia una calibración completa de los sensores de pared
+*/
+void calibrate_all(){
+  calibrate_sides();
+  delay(50);
+  calibrate_front();
+}
+
+/**
 * Realiza una calibración de los sensores frontales.
 *
 * NOTE: El robot debe de estar situado perpendicularmente a una pared frontal,
