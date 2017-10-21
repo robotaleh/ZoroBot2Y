@@ -193,8 +193,8 @@ void stop(int contra_vel_I, int contra_vel_D){
 }
 
 /**
- * Detiene completamente el robot.
- */
+* Detiene completamente el robot.
+*/
 void stop(){
 	stop(0,0);
 }
