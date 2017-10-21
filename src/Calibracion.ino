@@ -24,7 +24,7 @@ void calibrate_all(){
 *       Ej.: TODO: añadir link de foto de la wiki del apartado de calibración.
 */
 void calibrate_front(){
-  const float cm_calibracion = 7.5;
+  const float cm_calibracion = 5;
   int ticks_movimiento = cm_calibracion * TICKS_CM;
   ticksDerecho = 0;
   ticksIzquierdo = 0;
