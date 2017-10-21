@@ -59,6 +59,42 @@ void wall_reset(){
 }
 
 /**
+* Realiza un giro en arco, en lugar de hacerlo sobre si mismo, para ahorrar tiempo.
+* Suele hacerse para giros de 90º en esquinas del recorrido.
+* @param velBase Velocidad base a la que tomará el giro
+* @param grados  Grados que describe el arco a realizar.
+*/
+void giro_arco(int velBase, int grados){
+	float proporcion = 1.0f;
+	float ticksMotores[2];
+	proporcion = calcular_arco_giro(grados, ticksMotores);
+
+
+	int velBaseI = velBase;
+	int velBaseD = velBase;
+	int vel_prop = ((float)velBase * (proporcion-1));
+
+	if(grados>0){
+		velBaseI += vel_prop;
+	}else{
+		velBaseD += vel_prop;
+	}
+	ticksIzquierdo = 0;
+	ticksDerecho = 0;
+
+	do {
+		if (ticksIzquierdo >= ticksMotores[0]) {
+			velBaseI = 0;
+		}
+		if (ticksDerecho >= ticksMotores[1]) {
+			velBaseD = 0;
+		}
+		set_speed(velBaseI, velBaseD);
+	} while (!(ticksIzquierdo >= ticksMotores[0] && ticksDerecho >= ticksMotores[1]));
+	stop(-velBase, -velBase);
+}
+
+/**
 * Función para desplazar longitudinalmente el robot tantos cm como se indiquen.
 * @param velBase Velocidad del movimiento
 * @param cm      Centímetros que se recorrerán
