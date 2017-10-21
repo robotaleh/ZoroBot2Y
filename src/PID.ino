@@ -85,3 +85,12 @@ void sumar_correcciones(float correcciones[]){
   correcciones[0] = correccion_frontal[0] - correccion_lateral;
   correcciones[1] = correccion_frontal[1] + correccion_lateral;
 }
+
+/**
+ * Resetea todas las correcciones a 0 para deshacer los ajustes sobre el PID
+ */
+void reset_correcciones(){
+  correccion_lateral = 0;
+  correccion_frontal[0] = 0;
+  correccion_frontal[1] = 0;
+}
