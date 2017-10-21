@@ -23,7 +23,7 @@ void read_fronts(bool filtrado){
     sumaValoresFrontales[0] = 0;
     sumaValoresFrontales[1] = 0;
     for(byte lectura = 1; lectura < NUM_HISTORIAL_SENSORES; lectura++){
-      for(int sensor = 0; sensor<NUM_SENSORES_LATERALES;sensor++){
+      for(int sensor = 0; sensor<NUM_SENSORES_FRONTALES;sensor++){
         // Mueve los valores del indice actual al anterior
         filtrado_sensores_frontales[sensor][lectura -1] = filtrado_sensores_frontales[sensor][lectura];
         // Suma el índice anterior con los demás.
@@ -31,7 +31,7 @@ void read_fronts(bool filtrado){
       }
     }
 
-    for(int sensor = 0; sensor<NUM_SENSORES_LATERALES;sensor++){
+    for(int sensor = 0; sensor<NUM_SENSORES_FRONTALES;sensor++){
       // Añade al final del array la lectura actual.
       filtrado_sensores_frontales[sensor][NUM_HISTORIAL_SENSORES - 1] = analogRead(sensores_frontales[sensor]);
       // Suma la última lectura
@@ -40,7 +40,7 @@ void read_fronts(bool filtrado){
     delay_sensores_frontales.reset();
   }
 
-  for(int sensor = 0; sensor<NUM_SENSORES_LATERALES;sensor++){
+  for(int sensor = 0; sensor<NUM_SENSORES_FRONTALES;sensor++){
     if(filtrado){
       // Calcula la media de los valores sumados y los mapea a 0-255
       valores_sensores_frontales[sensor] = map((sumaValoresFrontales[sensor] / (float)NUM_HISTORIAL_SENSORES), minValoresFrontales[sensor],maxValoresFrontales[sensor], 0,255);

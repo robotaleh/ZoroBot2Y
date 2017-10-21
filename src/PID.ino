@@ -60,7 +60,7 @@ void PID_lateral() {
       }
     }
 
-    p = kp_lateral * error;    
+    p = kp_lateral * error;
     d = kd_lateral * (error - ultimoError_lateral);
     ultimoMillis_lateral = millis();
 
