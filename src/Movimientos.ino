@@ -59,27 +59,30 @@ void wall_reset(){
 }
 
 /**
- * Función para desplazar longitudinalmente el robot tantos cm como se indiquen.
- * @param velBase Velocidad del movimiento
- * @param cm      Centímetros que se recorrerán
- */
-void run_cm(int velBase, float cm){
-		int ticks_movimiento = cm * TICKS_CM;
-	  ticksDerecho = 0;
-	  ticksIzquierdo = 0;
-	  int velI = velBase;
-	  int velD = velBase;
-	  do{
-	    if(ticksIzquierdo >= ticks_movimiento){
-	      velI = 0;
-	    }
-	    if(ticksDerecho >= ticks_movimiento){
-	      velD = 0;
-	    }
-			PID();
-	    set_speed(velI, velD);
-	  }while(ticksDerecho < ticks_movimiento || ticksIzquierdo < ticks_movimiento);
-		stop();
+* Función para desplazar longitudinalmente el robot tantos cm como se indiquen.
+* @param velBase Velocidad del movimiento
+* @param cm      Centímetros que se recorrerán
+* @param pausa   Indica si se llamará a la función "stop" después de recorrer los cm indicados. 
+*/
+void run_cm(int velBase, float cm, bool pausa){
+	int ticks_movimiento = cm * TICKS_CM;
+	ticksDerecho = 0;
+	ticksIzquierdo = 0;
+	int velI = velBase;
+	int velD = velBase;
+	do{
+		if(ticksIzquierdo >= ticks_movimiento){
+			velI = 0;
+		}
+		if(ticksDerecho >= ticks_movimiento){
+			velD = 0;
+		}
+	  loop_functions();
+		PID();
+		set_speed(velI, velD);
+	}while(ticksDerecho < ticks_movimiento || ticksIzquierdo < ticks_movimiento);
+	if(pausa)
+	stop();
 }
 
 /**
