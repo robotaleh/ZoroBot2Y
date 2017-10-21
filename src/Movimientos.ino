@@ -182,9 +182,7 @@ void set_speed(float velBaseI, float velBaseD) {
 * Detiene completamente el robot, indicando una contra-velocidad para corregir inercia
 */
 void stop(int contra_vel_I, int contra_vel_D){
-	correccion_lateral = 0;
-	correccion_frontal[0] = 0;
-	correccion_frontal[1] = 0;
+	reset_correcciones();
 
 	set_speed(contra_vel_I, contra_vel_D);
 	delay(50);
