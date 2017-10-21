@@ -55,7 +55,7 @@ void wall_reset(){
 	}while(abs(ticksIzquierdo) > (ticks_objetivoI/2) || abs(ticksDerecho) > (ticks_objetivoD/2));
 	stop();
 	delay(100);
-	run_cm(50, 5.5f);
+	run_cm(50, 15, true);
 }
 
 /**
