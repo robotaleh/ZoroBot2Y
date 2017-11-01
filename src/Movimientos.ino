@@ -85,14 +85,12 @@ void giro_arco(int velBase, int grados){
 	ticksDerecho = 0;
 
 	do {
-		if (ticksIzquierdo >= ticksMotores[0]) {
-			velBaseI = 0;
-		}
-		if (ticksDerecho >= ticksMotores[1]) {
-			velBaseD = 0;
+		if(ticksIzquierdo >= ticksMotores[0] || ticksDerecho >= ticksMotores[1]){
+			velI = 0;
+			velD = 0;
 		}
 		set_speed(velBaseI, velBaseD);
-	} while (!(ticksIzquierdo >= ticksMotores[0] && ticksDerecho >= ticksMotores[1]));
+	} while (ticksIzquierdo <= ticksMotores[0] && ticksDerecho <= ticksMotores[1]);
 	stop(-velBase, -velBase);
 }
 
