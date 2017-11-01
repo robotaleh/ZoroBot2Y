@@ -2,8 +2,9 @@
 // Este fichero contendrá todas las funciones referentes al algoritmo de PID //
 ///////////////////////////////////////////////////////////////////////////////
 void PID(){
-  if(velReal == 0 && started){
-    PID_frontal();
+  // TODO: Fuerza siempre a hacer el PID lateral porque el frontal solo lo puede hacer cuando sabe que hay pared delante
+  if(1==2 && started){
+    // PID_frontal();
   }else{
     PID_lateral();
   }
