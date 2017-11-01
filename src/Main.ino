@@ -143,7 +143,14 @@ ATDelay delay_sensores_laterales(DELAY_FILTRO_SENSORES);
 
 
 void setup() {
-    // put your setup code here, to run once:
+  delay(1000);
+  init_all();
+  delay(100);
+  calibrate_all();
+  delay(100);
+  rotate(50,180);
+  delay(100);
+  wall_reset();
 }
 
 void loop() {
