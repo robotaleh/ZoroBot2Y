@@ -47,6 +47,9 @@ void PID_lateral() {
       error = valores_sensores_laterales[1] - valores_sensores_laterales[0];
       led_state = 0;
     }else{
+      if(led_state == 0 && !back_wall_reset){
+        reset_ticks_wall();
+      }
       led_state = 1;
       if(valores_sensores_laterales[0] > 0){
         if(objetivo_lateral[0] == 0){
