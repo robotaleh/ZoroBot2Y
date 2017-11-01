@@ -133,6 +133,7 @@ short objetivo_lateral[]    = {0, 0};
 float suma_correcciones[2];
 
 bool started = false;
+bool back_wall_reset = false;
 
 
 PIDfromBT pid_calibrate(&kp_lateral, &ki_lateral, &kd_lateral, &velBase, DEBUG);

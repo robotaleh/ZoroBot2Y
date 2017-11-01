@@ -41,6 +41,7 @@ void rotate(int velBase, int grados){
 * NOTE: Para usarlo, es recomendable que sea el final de un callejón sin salida.
 */
 void wall_reset(){
+	back_wall_reset = true;
 	int ticks_objetivoI = 0;
 	int ticks_objetivoD = 0;
 	do {
@@ -54,8 +55,9 @@ void wall_reset(){
 		}
 	}while(abs(ticksIzquierdo) > (ticks_objetivoI/2) || abs(ticksDerecho) > (ticks_objetivoD/2));
 	stop();
-	delay(100);
-	run_cm(50, 15, true);
+	// delay(100);
+	run_cm(100, 15, false);
+	back_wall_reset = false;
 }
 
 /**
