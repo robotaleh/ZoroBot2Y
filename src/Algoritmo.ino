@@ -1,0 +1,5 @@
+/////////////////////////////////////////////////////////////////////////////
+// Este fichero contendrá todas las funciones de manejo del algoritmo      //
+// de resolución, así como gestión de orientaciones, posición de casillas, //
+// mapeado, etc...                                                         //
+/////////////////////////////////////////////////////////////////////////////
