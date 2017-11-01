@@ -19,7 +19,7 @@ void PID_frontal() {
   float error[] = {objetivo_frontal[0] - valores_sensores_frontales[0], objetivo_frontal[1] - valores_sensores_frontales[1]};
 
   for (int sensor = 0; sensor < 2; sensor++) {
-    if ((valores_sensores_frontales[0] > 0 || valores_sensores_frontales[1] > 0)) {
+    if ((valores_sensores_frontales[0] > umbral_deteccion_frontal || valores_sensores_frontales[1] > umbral_deteccion_frontal)) {
       p[sensor] = kp_frontal * error[sensor];
       d[sensor] = kd_frontal * ((error[sensor] - ultimoError_frontal[sensor]) / (millis() - ultimoMillis_frontal[sensor]));
       ultimoMillis_frontal[sensor] = millis();
@@ -41,7 +41,7 @@ void PID_lateral() {
     double d = 0;
     short error = 0;
 
-    if(valores_sensores_laterales[0] > 0 && valores_sensores_laterales[1] > 0){
+    if(valores_sensores_laterales[0] > umbral_deteccion_lateral && valores_sensores_laterales[1] > umbral_deteccion_lateral){
       objetivo_lateral[0] = 0;
       objetivo_lateral[1] = 0;
       error = valores_sensores_laterales[1] - valores_sensores_laterales[0];

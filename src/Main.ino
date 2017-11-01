@@ -117,6 +117,7 @@ short ultimoError_frontal[]   = {0, 0};
 long  ultimoMillis_frontal[]  = {0, 0};
 float correccion_frontal[]    = {0, 0};
 short objetivo_frontal[]      = {125, 125};
+short umbral_deteccion_frontal  = -75;
 
 //////////////////////////
 //VARIABLES PID LATERAL //
@@ -130,6 +131,7 @@ long  ultimoMillis_lateral    = 0;
 float correccion_lateral      = 0;
 short objetivo_lateral[]      = {0, 0};
 
+short umbral_deteccion_lateral  = 0;
 float suma_correcciones[2];
 
 bool started          = false;
