@@ -47,6 +47,7 @@ int velMax = 255;
 float velI = 0;
 float velD = 0;
 bool run = false;
+bool led_state = -1;
 
 
 ////////////////////////////////

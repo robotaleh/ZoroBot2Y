@@ -45,9 +45,9 @@ void PID_lateral() {
       objetivo_lateral[0] = 0;
       objetivo_lateral[1] = 0;
       error = valores_sensores_laterales[1] - valores_sensores_laterales[0];
-      digitalWrite(LED_PIN, LOW);
+      led_state = 0;
     }else{
-      digitalWrite(LED_PIN, HIGH);
+      led_state = 1;
       if(valores_sensores_laterales[0] > 0){
         if(objetivo_lateral[0] == 0){
           objetivo_lateral[0] = valores_sensores_laterales[0];
@@ -60,6 +60,7 @@ void PID_lateral() {
         error = -(objetivo_lateral[1] - valores_sensores_laterales[1]);
       }
     }
+    digitalWrite(LED_PIN, led_state);
 
     p = kp_lateral * error;
     d = kd_lateral * (error - ultimoError_lateral);
