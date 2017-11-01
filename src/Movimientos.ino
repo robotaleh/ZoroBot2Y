@@ -107,18 +107,16 @@ void run_cm(int velBase, float cm, bool pausa){
 	int velI = velBase;
 	int velD = velBase;
 	do{
-		if(ticksIzquierdo >= ticks_movimiento){
+		if(ticksIzquierdo >= ticks_movimiento || ticksDerecho >= ticks_movimiento){
 			velI = 0;
-		}
-		if(ticksDerecho >= ticks_movimiento){
 			velD = 0;
 		}
 		loop_functions();
 		PID();
 		set_speed(velI, velD);
-	}while(ticksDerecho < ticks_movimiento || ticksIzquierdo < ticks_movimiento);
+	}while(ticksIzquierdo <= ticks_movimiento && ticksDerecho <= ticks_movimiento);
 	if(pausa)
-	stop();
+	stop(0,0);
 }
 
 /**
