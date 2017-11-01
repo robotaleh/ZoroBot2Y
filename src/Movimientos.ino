@@ -232,3 +232,11 @@ void stop(int contra_vel_I, int contra_vel_D){
 void stop(){
 	stop(0,0);
 }
+
+/**
+* Resetea los ticks restantes de casilla cuando pierde uno de las paredes laterales para minimizar el error
+*/
+void reset_ticks_wall(){
+	ticksDerecho = TICKS_CM*CM_CASILLA-TICKS_CM*4.3f;
+	ticksIzquierdo = TICKS_CM*CM_CASILLA-TICKS_CM*4.3f;
+}
