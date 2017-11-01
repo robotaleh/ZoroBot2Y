@@ -110,27 +110,26 @@ const float CM_CASILLA                    = 20;
 //////////////////////////
 //VARIABLES PID FRONTAL //
 //////////////////////////
-float kp_frontal              = 1;
-float ki_frontal              = 0;
-float kd_frontal              = 0;
-short ultimoError_frontal[]   = {0, 0};
-long  ultimoMillis_frontal[]  = {0, 0};
-float correccion_frontal[]    = {0, 0};
-short objetivo_frontal[]      = {125, 125};
+float kp_frontal                = 1;
+float ki_frontal                = 0;
+float kd_frontal                = 0;
+short ultimoError_frontal[]     = {0, 0};
+long  ultimoMillis_frontal[]    = {0, 0};
+float correccion_frontal[]      = {0, 0};
+short objetivo_frontal[]        = {125, 125};
 short umbral_deteccion_frontal  = -75;
 
 //////////////////////////
 //VARIABLES PID LATERAL //
 //////////////////////////
-float kp_lateral              = 0.1;
-float ki_lateral              = 0.5;
-float kd_lateral              = 100;
-int sum_error_lateral         = 0;
-short ultimoError_lateral     = 0;
-long  ultimoMillis_lateral    = 0;
-float correccion_lateral      = 0;
-short objetivo_lateral[]      = {0, 0};
-
+float kp_lateral                = 0.1;
+float ki_lateral                = 0.5;
+float kd_lateral                = 100;
+int sum_error_lateral           = 0;
+short ultimoError_lateral       = 0;
+long  ultimoMillis_lateral      = 0;
+float correccion_lateral        = 0;
+short objetivo_lateral[]        = {0, 0};
 short umbral_deteccion_lateral  = 0;
 float suma_correcciones[2];
 
