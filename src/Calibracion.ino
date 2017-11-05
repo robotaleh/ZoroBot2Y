@@ -26,11 +26,11 @@ void calibrate_all(){
 void calibrate_front(){
   const float cm_calibracion = 5;
   int ticks_movimiento = cm_calibracion * TICKS_CM;
+  int velI = 50;
+  int velD = 50;
+  int sensor_values[NUM_SENSORES_FRONTALES];
   ticksDerecho = 0;
   ticksIzquierdo = 0;
-  int velI = 80;
-  int velD = 80;
-  int sensor_values[NUM_SENSORES_FRONTALES];
   do{
     if(ticksIzquierdo >= ticks_movimiento){
       velI = 0;
