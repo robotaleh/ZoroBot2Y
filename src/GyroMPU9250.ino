@@ -22,3 +22,13 @@ float angle = 0;
 long last_angle_micros = 0;
 
 float kp_gyro = 1;
+
+/**
+* Inicializa el gyro, calculando el ruido.
+*/
+void init_gyro(){
+  Wire.begin();
+  I2CwriteByte(MPU9250_ADDRESS, 27, GYRO_FULL_SCALE_2000_DPS);
+
+  gyro_calibrate_deadband();
+}
