@@ -32,6 +32,18 @@ void init_gyro(){
 
   gyro_calibrate_deadband();
 }
+
+/**
+* Lectura directa del eje Z del giroscopio
+* @return rad/s actuales
+*/
+float read_gyro_z(){
+  uint8_t Buf[14];
+  I2Cread(MPU9250_ADDRESS, 0x3B, 14, Buf);
+  int z = ((Buf[12] << 8 | Buf[13]) - deadband_z)/16.4;
+  return (abs(z) > 1)? z: 0;
+}
+
 /**
 * Funcion auxiliar lectura
 * @param Address  Dirección del MPU9250.
