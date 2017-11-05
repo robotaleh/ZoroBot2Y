@@ -45,6 +45,14 @@ void process_Z_angle(){
   last_angle_micros = micros();
 }
 
+/**
+* Obtiene el ángulo ya calculado anteriormente
+* @return Angulo real del robot en grados.
+*/
+float get_z_angle(){
+  return angle;
+}
+
 
 /**
 * Resetea el ángulo para eliminar el error.
