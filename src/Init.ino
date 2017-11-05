@@ -57,14 +57,6 @@ void init_encoders(){
   // Inicializa los encoders.
   attachInterrupt(digitalPinToInterrupt(ENCODER_DERECHO_B), tick_encoder_derecho_B, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENCODER_IZQUIERDO_B), tick_encoder_izquierdo_B, CHANGE);
-  attachPinChangeInterrupt(ENCODER_DERECHO_A, tick_encoder_derecho_A, CHANGE);
-  attachPinChangeInterrupt(ENCODER_IZQUIERDO_A, tick_encoder_izquierdo_A, CHANGE);
-
-  // Obtiene el estado de cada uno de los canales.
-  estado_encoder_derecho_A = !digitalRead(ENCODER_DERECHO_A);
-  estado_encoder_izquierdo_A = !digitalRead(ENCODER_IZQUIERDO_A);
-  estado_encoder_derecho_B = !digitalRead(ENCODER_DERECHO_B);
-  estado_encoder_izquierdo_B = !digitalRead(ENCODER_IZQUIERDO_B);
 }
 
 /**

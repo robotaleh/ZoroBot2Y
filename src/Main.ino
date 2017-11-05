@@ -105,6 +105,8 @@ const float RADIO_ARCO_CM                 = 4.2f;
 const float DISTANCIA_RUEDAS_CM           = 7.1f;
 const float TICKS_CM                      = 87; //87.6 - 87.4
 const float CM_CASILLA                    = 20;
+bool motor_derecho_direccion_adelante = true;
+bool motor_izquierdo_direccion_adelante = true;
 
 
 //////////////////////////

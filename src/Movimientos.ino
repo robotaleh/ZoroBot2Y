@@ -168,6 +168,8 @@ void calcular_rotacion(int grados, float ticksMotores[]) {
 void set_speed(float velBaseI, float velBaseD) {
 	int pinD = MOTOR_DERECHO_ADELANTE;
 	int pinI = MOTOR_IZQUIERDO_ADELANTE;
+	motor_derecho_direccion_adelante = true;
+	motor_izquierdo_direccion_adelante = true;
 	sumar_correcciones(suma_correcciones);
 	int velI = velBaseI + suma_correcciones[0];
 	int velD = velBaseD + suma_correcciones[1];
@@ -176,24 +178,28 @@ void set_speed(float velBaseI, float velBaseD) {
 	if (velD > 255) {
 		velD = 255;
 		pinD = MOTOR_DERECHO_ADELANTE;
+		motor_derecho_direccion_adelante = true;
 	} else if (velD < 0) {
 		velD = abs(velD);
 		if (velD > 255) {
 			velD = 255;
 		}
 		pinD = MOTOR_DERECHO_ATRAS;
+		motor_derecho_direccion_adelante = false;
 	}
 
 	// Limitar velocidad del motor izquierdo y selecciona la dirección.
 	if (velI > 255) {
 		velI = 255;
 		pinI = MOTOR_IZQUIERDO_ADELANTE;
+		motor_izquierdo_direccion_adelante = true;
 	} else if (velI < 0) {
 		velI = abs(velI);
 		if (velI > 255) {
 			velI = 255;
 		}
 		pinI = MOTOR_IZQUIERDO_ATRAS;
+		motor_izquierdo_direccion_adelante = false;
 	}
 
 	if (!run) {
