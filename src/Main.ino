@@ -70,14 +70,14 @@ int filtrado_sensores_frontales[2][NUM_HISTORIAL_SENSORES];
 ////////////////////////////////
 #define NUM_SENSORES_LATERALES      2
 #define TIEMPO_CALIBRADO_LATERAL    5000
-#define CALIBRADO_LATERAL           1
+#define CALIBRADO_LATERAL           0
 int sensores_laterales[]            = {SENSOR_LATERAL_IZQUIERDO, SENSOR_LATERAL_DERECHO};
 int valores_sensores_laterales[]    = {0, 0};
-int minValoresLaterales[]           = {1023, 1023};
-int maxValoresLaterales[]           = {0, 0};
+// int minValoresLaterales[]           = {1023, 1023};
+// int maxValoresLaterales[]           = {0, 0};
 int sumaValoresLaterales[]          = {0,0};
-// int minValoresLaterales[]           = {194, 167};
-// int maxValoresLaterales[]           = {597, 596};
+int minValoresLaterales[]           = {194, 167};
+int maxValoresLaterales[]           = {597, 596};
 int filtrado_sensores_laterales[2][NUM_HISTORIAL_SENSORES];
 
 
