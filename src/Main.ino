@@ -159,7 +159,16 @@ void setup() {
 }
 
 void loop() {
-    // put your main code here, to run repeatedly:
+  if(!started){
+    actualiza_casilla_actual();
+    if(casilla_actual[FRONTAL]){
+      delay(2000);
+      run_cm(100, 12.3f, true);
+      started = true;
+    }
+  }else{
+  }
+}
 
 /**
  * Función para agrupar todas las que se deberían de llamar en tiempo de ejecución
