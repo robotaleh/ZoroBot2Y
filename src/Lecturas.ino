@@ -46,7 +46,7 @@ void read_fronts(bool filtrado){
       valores_sensores_frontales[sensor] = map((sumaValoresFrontales[sensor] / (float)NUM_HISTORIAL_SENSORES), minValoresFrontales[sensor],maxValoresFrontales[sensor], 0,255);
     }else{
       // Mapea la lectura directa de cada sensor
-      valores_sensores_frontales[sensor] = map(analogRead(sensores_laterales[sensor]), minValoresFrontales[sensor],maxValoresFrontales[sensor], 0,255);
+      valores_sensores_frontales[sensor] = map(analogRead(sensores_frontales[sensor]), minValoresFrontales[sensor],maxValoresFrontales[sensor], 0,255);
     }
   }
 }
