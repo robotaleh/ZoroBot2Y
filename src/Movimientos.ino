@@ -243,6 +243,11 @@ void stop(){
 * Resetea los ticks restantes de casilla cuando pierde uno de las paredes laterales para minimizar el error
 */
 void reset_ticks_wall(){
-	ticksDerecho = TICKS_CM*CM_CASILLA-TICKS_CM*4.3f;
-	ticksIzquierdo = TICKS_CM*CM_CASILLA-TICKS_CM*4.3f;
+	if(back_wall_reset){
+		ticksDerecho = TICKS_CM*CM_CASILLA-TICKS_CM*8.0f;
+		ticksIzquierdo = TICKS_CM*CM_CASILLA-TICKS_CM*8.0f;
+	}else{
+		ticksDerecho = TICKS_CM*CM_CASILLA-TICKS_CM*3.8f;
+		ticksIzquierdo = TICKS_CM*CM_CASILLA-TICKS_CM*3.8f;
+	}
 }
