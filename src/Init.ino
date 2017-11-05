@@ -14,6 +14,7 @@ void init_all(){
   init_encoders();
   init_sensores();
   init_btn_led();
+  init_gyro();
 }
 
 /**
