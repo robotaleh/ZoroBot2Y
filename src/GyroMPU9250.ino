@@ -35,6 +35,15 @@ void init_gyro(){
 
 
 /**
+* Resetea el ángulo para eliminar el error.
+* NOTE: Esta función se debe de llamar antes de realizar un giro,
+*       para eliminar el error que podría tener acumulado el giroscopio.
+*/
+void reset_z_angle(){
+  angle = 0;
+}
+
+/**
 * Calcula el ruido normal del giroscopio
 * para excluirlo de las lecturas reales.
 */
