@@ -33,6 +33,18 @@ void init_gyro(){
   gyro_calibrate_deadband();
 }
 
+/**
+* Calcula el ángulo real en el que se encuentra el robot
+*/
+void process_Z_angle(){
+  if(last_angle_micros == 0){
+    last_angle_micros = micros();
+  }
+  float rad_s = read_gyro_z();
+  angle -= 1.05 * rad_s * (micros()-last_angle_micros) / 1000000.0f;
+  last_angle_micros = micros();
+}
+
 
 /**
 * Resetea el ángulo para eliminar el error.
