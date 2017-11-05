@@ -53,6 +53,35 @@ float get_z_angle(){
   return angle;
 }
 
+/**
+ * Establece un ángulo objetivo para el robot y rota hasta llegar a el y mantenerse
+ * durante 200ms para evitar que se haya pasado de largo.
+ * @param angle_dest Ángulo destino en grados
+ */
+void set_z_angle(float angle_dest){
+  float error = angle_dest - angle;
+  float p;
+  float i;
+  long millis_error_ideal = 0;
+  while(abs(error) > 1 && (millis_error_ideal == 0 || (millis()-millis_error_ideal)<200)){
+    process_Z_angle();
+    p = kp_gyro * error;
+    if(abs(i)<25){
+      i += error*0.5f;
+    }
+    set_speed(p+i, -(p+i));
+
+    error = angle_dest - angle;
+    if(abs(error)<=1){
+      if(millis_error_ideal == 0){
+        millis_error_ideal = millis();
+      }
+    }else{
+      millis_error_ideal = 0;
+    }
+  }
+  stop();
+}
 
 /**
 * Resetea el ángulo para eliminar el error.
