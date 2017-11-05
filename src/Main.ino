@@ -167,6 +167,26 @@ void loop() {
       started = true;
     }
   }else{
+    loop_functions();
+    if(digitalRead(BTN_1))return;
+    actualiza_casilla_actual();
+    if(!contar_salidas()){
+      stop();
+      delay(100);
+      rotate(50,180);
+      delay(100);
+      wall_reset();
+    }else{
+      if(!casilla_actual[IZQUIERDA]){
+        stop();
+        giro_arco(50, -90);
+      }else if(!casilla_actual[FRONTAL]){
+        run_cm(100, CM_CASILLA, false);
+      }else if(!casilla_actual[DERECHA]){
+        stop();
+        giro_arco(50, 90);
+      }
+    }
   }
 }
 
@@ -177,5 +197,4 @@ void loop_functions(){
   pid_calibrate.update();
   read_fronts(true);
   PID();
-
 }
