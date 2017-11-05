@@ -112,14 +112,14 @@ bool motor_izquierdo_direccion_adelante = true;
 //////////////////////////
 //VARIABLES PID FRONTAL //
 //////////////////////////
-float kp_frontal                = 1;
+float kp_frontal                = 0.5f;
 float ki_frontal                = 0;
 float kd_frontal                = 0;
 short ultimoError_frontal[]     = {0, 0};
 long  ultimoMillis_frontal[]    = {0, 0};
 float correccion_frontal[]      = {0, 0};
-short objetivo_frontal[]        = {125, 125};
-short umbral_deteccion_frontal  = -75;
+short objetivo_frontal[]        = {0, 0};
+short umbral_deteccion_frontal  = -65;
 bool buscando_pared = false;
 
 //////////////////////////
