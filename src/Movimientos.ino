@@ -61,7 +61,7 @@ void giro_arco(int velBase, int grados){
 	}
 	ticksIzquierdo = 0;
 	ticksDerecho = 0;
-
+	reset_z_angle();
 	do {
 		if (abs(ticksIzquierdo) >= ticksMotores[0]) {
 			velBaseI = 0;
@@ -69,6 +69,7 @@ void giro_arco(int velBase, int grados){
 		if (abs(ticksDerecho) >= ticksMotores[1]) {
 			velBaseD = 0;
 		}
+		process_Z_angle();
 		set_speed(velBaseI, velBaseD);
 	} while (!(abs(ticksIzquierdo) >= ticksMotores[0] && abs(ticksDerecho) >= ticksMotores[1]));
   stop();
