@@ -228,7 +228,7 @@ void stop(int contra_vel_I, int contra_vel_D){
 	reset_correcciones();
 
 	set_speed(contra_vel_I, contra_vel_D);
-	delay(50);
+	delay(30);
 	run = false;
 	digitalWrite(MOTOR_RUN, HIGH);
 	digitalWrite(MOTOR_DERECHO_PWM, LOW);
