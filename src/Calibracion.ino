@@ -49,7 +49,7 @@ void calibrate_front(){
       }
     }
   }while(ticksDerecho < ticks_movimiento || ticksIzquierdo < ticks_movimiento);
-  stop(-80,-80);
+  stop();
 }
 
 /**
