@@ -32,3 +32,33 @@ void init_gyro(){
 
   gyro_calibrate_deadband();
 }
+/**
+* Funcion auxiliar lectura
+* @param Address  Dirección del MPU9250.
+* @param Register Registro donde se escribirá.
+* @param Nbytes   Cantidad de bytes que se leerán.
+* @param Data     Variable de salida con los datos de lectura.
+*/
+void I2Cread(uint8_t Address, uint8_t Register, uint8_t Nbytes, uint8_t* Data){
+  Wire.beginTransmission(Address);
+  Wire.write(Register);
+  Wire.endTransmission();
+
+  Wire.requestFrom(Address, Nbytes);
+  uint8_t index = 0;
+  while (Wire.available())
+  Data[index++] = Wire.read();
+}
+
+/**
+* Funcion auxiliar de escritura
+* @param Address  Dirección del MPU9250.
+* @param Register Registro donde se escribirá.
+* @param Data     Contenido de la escritura.
+*/
+void I2CwriteByte(uint8_t Address, uint8_t Register, uint8_t Data){
+  Wire.beginTransmission(Address);
+  Wire.write(Register);
+  Wire.write(Data);
+  Wire.endTransmission();
+}
