@@ -160,4 +160,13 @@ void setup() {
 
 void loop() {
     // put your main code here, to run repeatedly:
+
+/**
+ * Función para agrupar todas las que se deberían de llamar en tiempo de ejecución
+ */
+void loop_functions(){
+  pid_calibrate.update();
+  read_fronts(true);
+  PID();
+
 }
