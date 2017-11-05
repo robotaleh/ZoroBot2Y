@@ -128,8 +128,8 @@ void run_cm(int velBase, float cm, bool pausa){
 */
 float calcular_arco_giro(int grados, float ticksMotores[]) {
 	float rad = (abs(grados) * 3.1416f / 180);
-	float arco_interior = rad * (float)RADIO_ARCO_CM *1.1f;
-	float arco_exterior = rad * (float)(RADIO_ARCO_CM + DISTANCIA_RUEDAS_CM) *0.98f;
+	float arco_interior = rad * (float)RADIO_ARCO_CM *1.2f;
+	float arco_exterior = rad * (float)(RADIO_ARCO_CM + DISTANCIA_RUEDAS_CM) *1.0f;
 	if(grados > 0){
 		ticksMotores[0] = (float)TICKS_CM * arco_exterior;
 		ticksMotores[1] = (float)TICKS_CM * arco_interior;
