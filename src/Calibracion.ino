@@ -60,9 +60,9 @@ void calibrate_front(){
 *       Ej.: TODO: añadir link de foto de la wiki del apartado de calibración.
 */
 void calibrate_sides(){
-  int sensor_values[NUM_SENSORES_FRONTALES];
+  int sensor_values[NUM_SENSORES_LATERALES];
   float ticksMotores[2];
-  calcular_arco_giro(-15, ticksMotores);
+  calcular_arco_giro(-20, ticksMotores);
   ticksIzquierdo = 0;
   ticksDerecho = 0;
   short velBaseI = 50;
@@ -87,6 +87,8 @@ void calibrate_sides(){
     set_speed(velBaseI, 0);
   } while (velBaseI>0 || ticksIzquierdo > 0);
   stop(-50,0);
+
+  calcular_arco_giro(20, ticksMotores);
   ticksIzquierdo = 0;
   ticksDerecho = 0;
   short velBaseD = 50;
