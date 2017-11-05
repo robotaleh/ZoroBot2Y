@@ -38,7 +38,7 @@ void rotate(int velBase, int grados){
 * Función para resetear error del robot yendo marcha atrás hacia una pared y
 * posicionándose en el centro de la casilla.
 *
-* NOTE: Para usarlo, es recomendable que sea el final de un callejón sin salida.
+* NOTE: Para usarlo, es recomendable que sea el final de un callejón sin salida o al inicio del recorrido.
 */
 void wall_reset(){
 	back_wall_reset = true;
