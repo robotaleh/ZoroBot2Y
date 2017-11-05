@@ -7,31 +7,8 @@
 * Función para realizar un giro de los grados indicados
 */
 void rotate(int velBase, int grados){
-	float ticksMotores[2];
-	calcular_rotacion(grados, ticksMotores);
-	ticksIzquierdo = 0;
-	ticksDerecho = 0;
-	short velBaseI = velBase;
-	short velBaseD = velBase;
-	if(grados > 0){
-		velBaseD = -velBaseD;
-	}else{
-		velBaseI = -velBaseI;
-	}
-	do {
-		if(abs(ticksIzquierdo) >= ticksMotores[0]){
-			velBaseI = 0;
-		}
-		if(abs(ticksDerecho) >= ticksMotores[1]){
-			velBaseD = 0;
-		}
-		set_speed(velBaseI, velBaseD);
-	}while(abs(ticksDerecho) < ticksMotores[1] || abs(ticksIzquierdo) < ticksMotores[0]);
-	if(grados>0){
-		stop(-(velBase/2), (velBase/2));
-	}else{
-		stop((velBase/2), -(velBase/2));
-	}
+	reset_z_angle();
+	set_z_angle(grados*0.89f);
 }
 
 /**
