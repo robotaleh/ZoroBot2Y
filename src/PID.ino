@@ -93,8 +93,8 @@ void sumar_correcciones(float correcciones[]){
 }
 
 /**
- * Resetea todas las correcciones a 0 para deshacer los ajustes sobre el PID
- */
+* Resetea todas las correcciones a 0 para deshacer los ajustes sobre el PID
+*/
 void reset_correcciones(){
   correccion_lateral = 0;
   correccion_frontal[0] = 0;
