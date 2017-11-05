@@ -133,7 +133,7 @@ short ultimoError_lateral       = 0;
 long  ultimoMillis_lateral      = 0;
 float correccion_lateral        = 0;
 short objetivo_lateral[]        = {0, 0};
-short umbral_deteccion_lateral  = 0;
+short umbral_deteccion_lateral  = 10;
 float suma_correcciones[2];
 
 bool started          = false;
