@@ -120,6 +120,7 @@ long  ultimoMillis_frontal[]    = {0, 0};
 float correccion_frontal[]      = {0, 0};
 short objetivo_frontal[]        = {125, 125};
 short umbral_deteccion_frontal  = -75;
+bool buscando_pared = false;
 
 //////////////////////////
 //VARIABLES PID LATERAL //
