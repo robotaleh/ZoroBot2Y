@@ -38,7 +38,6 @@ void calibrate_front(){
     if(ticksDerecho >= ticks_movimiento){
       velD = 0;
     }
-    PID_lateral();
     set_speed(velI, velD);
     read_fronts_raw(sensor_values);
     for (int sensor = 0; sensor < NUM_SENSORES_FRONTALES; sensor++) {
