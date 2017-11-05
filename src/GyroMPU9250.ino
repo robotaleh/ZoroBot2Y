@@ -33,6 +33,20 @@ void init_gyro(){
   gyro_calibrate_deadband();
 }
 
+
+/**
+* Calcula el ruido normal del giroscopio
+* para excluirlo de las lecturas reales.
+*/
+void gyro_calibrate_deadband(){
+  float noise = 0;
+  for(int i = 0; i < 50;i++){
+    noise += read_gyro_z();
+    delay(10);
+  }
+  deadband_z = noise/50.0f;
+}
+
 /**
 * Lectura directa del eje Z del giroscopio
 * @return rad/s actuales
