@@ -11,9 +11,9 @@
 void actualiza_casilla_actual(){
   read_fronts(false);
   read_sides(false);
-  casilla_actual[IZQUIERDA]     = valores_sensores_laterales[0] > umbral_deteccion_lateral;
-  casilla_actual[FRONTAL]       = valores_sensores_frontales[0] < umbral_deteccion_frontal || valores_sensores_frontales[1] < umbral_deteccion_frontal;
-  casilla_actual[DERECHA]       = valores_sensores_laterales[1] > umbral_deteccion_lateral;
+  casilla_actual[IZQUIERDA]     = valores_sensores_laterales[0] >= umbral_deteccion_lateral;
+  casilla_actual[FRONTAL]       = valores_sensores_frontales[0] >= umbral_deteccion_frontal && valores_sensores_frontales[1] >= umbral_deteccion_frontal;
+  casilla_actual[DERECHA]       = valores_sensores_laterales[1] >= umbral_deteccion_lateral;
 }
 
 /**
